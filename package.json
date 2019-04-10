@@ -1,0 +1,24 @@
+{
+  "name": "tsfunctions",
+  "description": "",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build && func extensions install",
+    "start:host": "func start",
+    "start": "npm run start:host & npm run watch",
+    "build:production": "npm run prestart && npm prune --production",
+    "test": "jest"
+  },
+  "dependencies": {
+    "image-thumbnail": "1.0.2"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.0.1-beta2",
+    "@types/jest": "^24.0.11",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.3.3"
+  }
+}
