@@ -9,20 +9,20 @@
 
 4. Após o login, escolher a assinatura desejada e clicar em "Create New Project..."
   - Selecionar a pasta onde será criado o projeto
-  ![Azure Tools](.\assets\02-createnewproject.png)
+  ![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/02-createnewproject.png)
 
   - Selecionar a linguagem Typescript
-  ![Azure Tools](.\assets\03-newproject-typescript.png)
+  ![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/03-newproject-typescript.png)
 
   - Selecionar o template (eg HttpTrigger)
-  ![Azure Tools](.\assets\04-newproject-template.png)
+  ![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/04-newproject-template.png)
 
   - Especificar o nome de função (eg Thumbnail Image)
   - Definir Authorization Level (eg Function)
 
 5. Analise o projeto criado
   - Estrutura do Projeto:
-  ![Azure Tools](.\assets\05-newproject-createdproject.png)
+  ![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/05-newproject-createdproject.png)
 
 6. Em package.json, incluir a dependência "image-thumbnail" na propriedade "dependencies: 
 ```javascript
@@ -70,17 +70,17 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 export default httpTrigger;
 ```
 
-![Azure Tools](.\assets\07-thumbnailimage-indexcode.png)
+![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/07-thumbnailimage-indexcode.png)
 
 8. Executar a função na máquina local. Para isso, acesse a aba de Debug e execute a configuração já existente "Attach to Node Functions":
 
-![Azure Tools](.\assets\08-thumbnailimage-debug.png)
+![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/08-thumbnailimage-debug.png)
 
  - Este procedimento já irá isntalar os pacotes NPM, fazer a compilação do Typescript e executar a função no host local
 
  - Ao término da execução, será disponibilizado acesso a função via URL local (eg http://localhost:7071/api/ThumbnailImage)
 
-![Azure Tools](.\assets\09-thumbnailimage-running.png)
+![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/09-thumbnailimage-running.png)
 
  9. Abrir o Postman ou outra ferramenta para testes de APIs para testar a função recém criada.
   - Incluir no body da requisição a URL de uma imagem, especificando como content type "application/json":
@@ -92,30 +92,30 @@ export default httpTrigger;
 
 10. A função deverá retornar o base64 da imagem conforme programado na função:
 
-![Azure Tools](.\assets\10-thumbnailimage-response.png)
+![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/10-thumbnailimage-response.png)
 
 11. Funcionou! Podemos agora interromper a execução.
 
 12. Agora vamos publicar esta função no Azure. Voltando para a aba azure, escolha a assinatura desejada e então escolha a opção "Create Function app In Azure"
 
-![Create Function App](.\assets\11-azure-createfunctionapp.png)
+![Create Function App](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/11-azure-createfunctionapp.png)
 
  - Especificar um nome único. Será criada uma função em um grupo de recursos novo definido pela extensão.
  - Para visualizar a nova função criada, acesse seu menu de contexto e seleciona aopção "Open in Portal"
 
-![Open Function App in Portal](.\assets\12-azure-createfunctionapp-openinportal.png)
+![Open Function App in Portal](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/12-azure-createfunctionapp-openinportal.png)
 
-![Azure Function in Portal](.\assets\13-azure-functionapp-azureportal.png)
+![Azure Function in Portal](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/13-azure-functionapp-azureportal.png)
 
 13. Agora vamos fazer o deploy da nossa função local no azure escolhendo a opção "Deploy to Funcation App..." do menu de contexto da função.
 
-![Azure Function Deploy](.\assets\14-azure-functionapp-deploy.png)
+![Azure Function Deploy](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/14-azure-functionapp-deploy.png)
 
   - Confirmar o deploy da função
 
 14. Acessar novamente o portal para verificar a função que acaba de ser implantada:
   
-![Azure Function Deployed](.\assets\15-azure-functionapp-deployed.png)
+![Azure Function Deployed](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/15-azure-functionapp-deployed.png)
 
 15. Testar usando o mesmo Postman, mas agora apontando para a URL da função no azure. 
 
@@ -123,32 +123,32 @@ export default httpTrigger;
 
  - No VSCode, clicar na opção "Start Streaming Logs" da função no Azure através dessa opção no menu de contexto:
 
-![Start Stream Logs](.\assets\16-vscode-functionapp-startstreamlogs.png)
+![Start Stream Logs](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/16-vscode-functionapp-startstreamlogs.png)
 
  - Testar novamente a função no Postman. Será retornado o erro:
 
-![Error Logs](.\assets\17-vscode-functionapp-errorlogs.png)
+![Error Logs](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/17-vscode-functionapp-errorlogs.png)
 
  - Note que esse erro em questão diz respeito a versão do Node sendo usada no host da Function no Azure. Para corrigir esse erro, é necessário especificar NodeJS 64 bits no host da função no Azure.
 
  - Acesse o Kudu do host do Azure Function:
 
-![Kudu do Azure Function](.\assets\18-azure-functionapp-accesskudu.png)
+![Kudu do Azure Function](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/18-azure-functionapp-accesskudu.png)
 
  - Acesse o Debug Console CMD
 
  - Arraste o executável no Node 64 bits na pasta d:\home
 
-![Upload Node](.\assets\19-azure-functionapp-uploadnode.png)
+![Upload Node](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/19-azure-functionapp-uploadnode.png)
 
  - Voltando para o Azure Function, acessar App Settings e incluir a seguinte configuração:
 
 languageWorkers:node:defaultExecutablePath = d:\home\node
-![App Settings](.\assets\20-azure-functionapp-appsettings.png)
+![App Settings](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/20-azure-functionapp-appsettings.png)
 
  - Agora vamos testar novamente a função e Voialá!
 
-![Azure Function Funcionando](.\assets\21-azure-functionapp-workingtest.png)
+![Azure Function Funcionando](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/21-azure-functionapp-workingtest.png)
 
 17. Pronto! Agora vamos incluir alguns testes para nossa função. Para isso, vamos incluir nova dependencia de desenvolvimento no package.json. No final, nosso devDependencies ficará da seguinte forma:
 
@@ -211,7 +211,7 @@ test('Http trigger should return thumbnail image', async () => {
 });
 ```
 
-![Create Test](.\assets\22-vscode-functionapp-createtest.png)
+![Create Test](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/22-vscode-functionapp-createtest.png)
 
 19. Feito isso, vamos incluir o arquivo de configuração do jest na raiz do projeto:
 
@@ -238,7 +238,7 @@ test('Http trigger should return thumbnail image', async () => {
 
 20. Feito isso, instalar os novos pacotes com "npm install" e depois executar o script de teste com "npm run test"
 
-![Run Test](.\assets\23-vscode-functionapp-runtest.png)
+![Run Test](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/23-vscode-functionapp-runtest.png)
 
  - Note que no teste estamos verificando o resultado base64 do thumbnail da imagem. Podemos incluir outras imagens e outros testes para verificar nossa função.
 
