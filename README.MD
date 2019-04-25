@@ -5,7 +5,7 @@
   - Azure Functions: https://github.com/Microsoft/vscode-azurefunctions
    
 3. Acessar a aba do Azure e efetuar login para acessar suas assinaturas
-![Azure Tools](.\assets\01-azuresignin.png)
+![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/01-azuresignin.png)
 
 4. Após o login, escolher a assinatura desejada e clicar em "Create New Project..."
   - Selecionar a pasta onde será criado o projeto
