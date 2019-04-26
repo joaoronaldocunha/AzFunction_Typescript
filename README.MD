@@ -1,11 +1,15 @@
-1. Abrir o Visual Studio Code
+## Antes de Iniciar
+
+1. Instalar e iniciar o Visual Studio Code: https://code.visualstudio.com/download
 
 2. Instalar e ativar as extensões mínimas necessárias
   - Azure Account: https://github.com/microsoft/vscode-azure-account
   - Azure Functions: https://github.com/Microsoft/vscode-azurefunctions
    
-3. Acessar a aba do Azure e efetuar login para acessar suas assinaturas
+3. No Visual Studio Code, acessar a aba do Azure e efetuar login para acessar suas assinaturas
 ![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/01-azuresignin.png)
+
+## Criando o Projeto
 
 4. Após o login, escolher a assinatura desejada e clicar em "Create New Project..."
   - Selecionar a pasta onde será criado o projeto
@@ -76,7 +80,7 @@ export default httpTrigger;
 
 ![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/08-thumbnailimage-debug.png)
 
- - Este procedimento já irá isntalar os pacotes NPM, fazer a compilação do Typescript e executar a função no host local
+ - Este procedimento já irá instalar os pacotes NPM, fazer a compilação do Typescript e executar a função no host local
 
  - Ao término da execução, será disponibilizado acesso a função via URL local (eg http://localhost:7071/api/ThumbnailImage)
 
@@ -95,6 +99,8 @@ export default httpTrigger;
 ![Azure Tools](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/10-thumbnailimage-response.png)
 
 11. Funcionou! Podemos agora interromper a execução.
+
+## Publicando no Azure
 
 12. Agora vamos publicar esta função no Azure. Voltando para a aba azure, escolha a assinatura desejada e então escolha a opção "Create Function app In Azure"
 
@@ -149,6 +155,8 @@ languageWorkers:node:defaultExecutablePath = d:\home\node
  - Agora vamos testar novamente a função e Voialá!
 
 ![Azure Function Funcionando](https://raw.githubusercontent.com/joaoronaldocunha/AzFunction_Typescript/master/assets/21-azure-functionapp-workingtest.png)
+
+## Incluindo Testes
 
 17. Pronto! Agora vamos incluir alguns testes para nossa função. Para isso, vamos incluir nova dependencia de desenvolvimento no package.json. No final, nosso devDependencies ficará da seguinte forma:
 
